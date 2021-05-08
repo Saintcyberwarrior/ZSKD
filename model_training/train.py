@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 tf.set_random_seed(777)
 from time import time
 import math
