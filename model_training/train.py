@@ -21,7 +21,7 @@ epoch_start = 0
 
 desc = "Train teacher/student network"
 parser = argparse.ArgumentParser(description=desc)
-parser.add_argument('--network', type=str, default='student', help='[teacher, student]')
+parser.add_argument('--network', type=str, default='teacher', help='[teacher, student]')
 parser.add_argument('--dataset', type=str, default='data_impressions', help='[cifar10, data_impressions]')
 parser.add_argument('--resize', action='store_true', default =False, help="resizing the input image, model takes 32x32")
 parser.add_argument('--suffix', type=str, default='T20_40000_lr_0.001_batch100_1500_iterations', help='(contain DI info like temp, sample count etc. or original data)')
