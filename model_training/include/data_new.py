@@ -67,8 +67,8 @@ def original_data_set(name="train", suffix='', folder_name=''):
 
     if name is "train":
         for i in range(5):
-            f = open('./data_set/'+folder_name+'/data_batch_' + str(i + 1), 'rb')
-            datadict = pickle.load(f)
+            f = open('/content/ZSKD/model_training/dataset/cifar_10/data_batch_' + str(i + 1), 'rb')
+            datadict = pickle.load(f, encoding='latin1')
             f.close()
 
             _X = datadict["data"]
@@ -88,8 +88,8 @@ def original_data_set(name="train", suffix='', folder_name=''):
                 y = np.concatenate((y, _Y), axis=0)
 
     elif name is "test":
-        f = open('./data_set/'+folder_name+'/test_batch', 'rb')
-        datadict = pickle.load(f)
+        f = open('/content/ZSKD/model_training/dataset/cifar_10/test_batch', 'rb')
+        datadict = pickle.load(f, encoding='latin1')
         f.close()
 
         x = datadict["data"]
