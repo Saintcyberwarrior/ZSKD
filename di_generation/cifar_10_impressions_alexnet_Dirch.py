@@ -114,12 +114,12 @@ def createClassImpressions(num_samples,batch_size,max_iter,dType, rows, simMat):
 	label_image_all = list()
 	softmax_image_all = list()
 	for row_no in range(rows):
-                print("#################################")
-                if row_no < 10:
-                    print("Creating samples for Class : " +str(row_no+1)+" with scaling factor (beta)=1.0")
-                else:
-                    print("Creating samples for Class : " +str(row_no+1)+" with scaling factor (beta)=0.1")
-                sess.run(noise_image.initializer)
+		print("#################################")
+		if row_no < 10:
+			print("Creating samples for Class : " +str(row_no+1)+" with scaling factor (beta)=1.0")
+		else:
+			print("Creating samples for Class : " +str(row_no+1)+" with scaling factor (beta)=0.1")
+		sess.run(noise_image.initializer)
 		train_confid = 0
 		train_pred = row_no+1
 		
@@ -138,7 +138,7 @@ def createClassImpressions(num_samples,batch_size,max_iter,dType, rows, simMat):
 					train_noise_image, _, train_noise_loss, train_softmax= sess.run([noise_image, update, noise_cost, net_softmax], feed_dict={net_softmax_dirich: softmax_generated, scale_f: rand_scale_value, rotate_f: rand_rotate_value})
 					noise_image_all.append(train_noise_image)
 					softmax_image_all.append(train_softmax)
-					print 'row', row_no, 'iter', j, 'cost', train_noise_loss
+					print ('row', row_no, 'iter', j, 'cost', train_noise_loss)
 					break
 	x=np.array(noise_image_all)
 	x=np.reshape(x,[x.shape[0]*x.shape[1],x.shape[2],x.shape[3],x.shape[4]])
@@ -154,8 +154,8 @@ def createClassImpressions(num_samples,batch_size,max_iter,dType, rows, simMat):
 
 def main():
 
-	e=pickle.load(open('visualMat_alexnet_cifar10_scale_1.pickle','rb'))
-	f=pickle.load(open('visualMat_alexnet_cifar10_scale_0.1.pickle','rb'))
+	e=pickle.load(open('/content/ZSKD/di_generation/visualMat_alexnet_cifar10_scale_1.pickle','rb'),  encoding = 'latin1')
+	f=pickle.load(open('/content/ZSKD/di_generation/visualMat_alexnet_cifar10_scale_0.1.pickle','rb'),  encoding = 'latin1')
 
 	simMat = np.concatenate([e,f]); rows=20; 
 
@@ -163,6 +163,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
