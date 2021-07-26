@@ -4,7 +4,7 @@ import os
 import tarfile
 import zipfile
 import sys
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 import sys
 
 def rescale(values, new_min = 0, new_max = 255):
